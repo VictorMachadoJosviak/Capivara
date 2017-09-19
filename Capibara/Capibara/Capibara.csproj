@@ -52,11 +52,6 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.2.9" />
   </ItemGroup>
 
- 
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
-
 
 
 

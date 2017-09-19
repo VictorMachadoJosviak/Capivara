@@ -1,5 +1,6 @@
 ﻿
 using Capibara.Helpers;
+using Capibara.Model;
 using Capibara.Service;
 using Capibara.ViewModel.Base;
 using GalaSoft.MvvmLight.Command;
@@ -35,7 +36,9 @@ namespace Capibara.ViewModel
                 if (ble.State == Plugin.BLE.Abstractions.Contracts.BluetoothState.On)
                 {
                     ResultText = await App.Resolve<ISpeechToTextHelper>().StartVoiceInput();
-                    await capivaraService.SendTextToService(ResultText);
+                    Conversa = await capivaraService.SendTextToService(ResultText);
+                    capivaraService.Context = Conversa;
+                    ResultText = Conversa.ConStrResposta;
                 }
                 else
                 {
@@ -49,6 +52,15 @@ namespace Capibara.ViewModel
                await ShowToast(ex.Message);
             }
         });
+
+
+        private Conversa _conversa;
+
+        public Conversa Conversa
+        {
+            get { return _conversa; }
+            set {Set(ref _conversa , value); }
+        }
 
 
 
