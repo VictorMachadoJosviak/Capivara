@@ -10,7 +10,7 @@ namespace Capibara.Views
 {
     public class MainPage : ContentPageDataBase<MainViewModel>
     {
-        public int MyProperty { get; set; }
+        
         public override void OnCreate()
         {
             Title = "Capibara";
