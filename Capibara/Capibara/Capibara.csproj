@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.4</TargetFrameworks>
+    <PackageTargetFallback>portable-net45+win8+wpa81+wp8</PackageTargetFallback>
+    <DebugType>full</DebugType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <AssemblyName>Capibara</AssemblyName>
+    <PackageId>Capibara</PackageId>
+    <RootNamespace>Capibara</RootNamespace>
+  </PropertyGroup>
+
+ 
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="6.5.1" />
+    <PackageReference Include="Flurl" Version="2.4.0" />
+    <PackageReference Include="Flurl.Http" Version="1.2.0" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore" Version="4.0.1" />
+    <PackageReference Include="MvvmLightLibs" Version="5.3.0" />
+    <PackageReference Include="Naylah.Identity.Client" Version="2017.4.26-alpha" />
+    <PackageReference Include="Naylah.Services.Client" Version="2017.4.26-alpha" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Plugin.BLE" Version="1.3.0" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="1.8.1" />
+    <PackageReference Include="Xam.Plugins.TextToSpeech" Version="3.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="2.3.5.235-pre2" />
+    <PackageReference Include="XLabs.IoC.Autofac" Version="2.0.5782" />
+    <PackageReference Include="Autofac" Version="4.6.0" />
+    <PackageReference Include="CarouselView.FormsPlugin" Version="4.4.2" />
+    <PackageReference Include="Humanizer.Core.pt" Version="2.2.0" />
+    <PackageReference Include="NETStandard.Library" Version="1.6.1" />
+    <PackageReference Include="Naylah.Xamarin" Version="2017.7.6.2" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.3.3" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+    <PackageReference Include="System.Reflection" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.Extensions" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.0.1" />
+    <PackageReference Include="Xam.Plugin.PushNotification" Version="1.2.4" />
+    <PackageReference Include="Xam.Plugin.Version" Version="1.0.0" />
+    <PackageReference Include="Xam.Plugins.Messaging" Version="4.0.0" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.2.9" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.2.9" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.2.9" />
+  </ItemGroup>
+
+ 
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+
+
+
+
+
+
+
+
+
+</Project>
