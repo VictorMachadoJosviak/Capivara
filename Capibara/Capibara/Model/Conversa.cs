@@ -2,29 +2,27 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static Capibara.Helpers.StringsProperties;
 
 namespace Capibara.Model
 {
     public class Conversa
-    {
-        public Conversa()
-        {
-            ContextConversation = new ContextConversation();
-        }
-        [JsonProperty("conStrPergunta")]
+    {        
+        [JsonProperty(conStrPergunta)]
         public string ConStrPergunta { get; set; }
 
-        [JsonProperty("conDtmRecebimentoPergunta")]
+        [JsonProperty(conDtmRecebimentoPergunta)]
         public long ConDtmRecebimentoPergunta { get; set; }
 
-        [JsonProperty("conStrResposta")]
+        [JsonProperty(conStrResposta)]
         public string ConStrResposta { get; set; }
 
-        [JsonProperty("conDtmEnvioResposta")]
+        [JsonProperty(conDtmEnvioResposta)]
         public long ConDtmEnvioResposta { get; set; }
 
-        [JsonProperty("contextConversation")]
-        public ContextConversation ContextConversation { get; set; }
+        [JsonProperty(contextConversation)]
+        public IDictionary<string,object> ContextConversation { get; set; }
+ 
 
     }
 }

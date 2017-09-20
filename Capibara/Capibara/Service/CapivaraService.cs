@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using static Capibara.Helpers.CapivaraHelper;
+using static Capibara.Helpers.StringsProperties;
 
 namespace Capibara.Service
 {
@@ -15,23 +17,23 @@ namespace Capibara.Service
 
         private const string URL_POST = "https://capibara.mybluemix.net/capws/conversaController/resposta";
 
-        public async Task<Conversa> SendTextToService(string conversa)
+        public async Task<Conversa> SendTextToService(string pegunta)
         {
             try
             {
-                //var conv = new
-                //{
-                //    conStrPergunta = conversa,
-                //    conStrResposta = "",
-                //    contextConversation = default(object)
-                //};
-                var conv = new Conversa
+               
+                var conversa = new Conversa
                 {
-                    ConStrPergunta = conversa
+                    ConStrPergunta = pegunta
                 };
-            
+
+                if (Context != null)
+                {
+                    Context.ConStrPergunta = pegunta;
+                }
                 
-                var json = Context != null ? JsonConvert.SerializeObject(Context) :JsonConvert.SerializeObject(conv);
+                var json = Context != null ? JsonConvert.SerializeObject(Context) :
+                                             JsonConvert.SerializeObject(conversa);
 
                 var client = new HttpClient();
 
@@ -42,10 +44,16 @@ namespace Capibara.Service
                 var response = await client.PostAsync(URL_POST, content);
                 
                 string resultContent = await response.Content.ReadAsStringAsync();
+                var dic = DeserializeToDictionary(resultContent);
 
-                Conversa c = JsonConvert.DeserializeObject<Conversa>(resultContent);
+                conversa.ConDtmEnvioResposta = (long) dic[conDtmEnvioResposta];
+                conversa.ConStrResposta = dic[conStrResposta].ToString();
+                conversa.ConDtmRecebimentoPergunta = (long) dic[conDtmRecebimentoPergunta];
+                conversa.ConStrPergunta = dic[conStrPergunta].ToString();
+                conversa.ContextConversation = (IDictionary<string, object>)dic[contextConversation];
+                
 
-                return c;
+                return conversa;
 
 
             }

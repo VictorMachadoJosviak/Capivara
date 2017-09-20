@@ -9,7 +9,7 @@ namespace Capibara.Service
     public interface ICapivaraService
     {
         Conversa Context { get; set; }
-      Task< Conversa> SendTextToService(string conversa);
+      Task< Conversa> SendTextToService(string pegunta);
 
 
     }

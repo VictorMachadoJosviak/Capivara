@@ -17,14 +17,8 @@ namespace Capibara.ViewModel
         public ICapivaraService capivaraService { get; set; }
         public MainViewModel(ICapivaraService _capivaraService)
         {
-            capivaraService = _capivaraService;
-            LoadData();
-        }
-
-        private async Task LoadData()
-        {
-            
-        }
+            capivaraService = _capivaraService;            
+        }   
         public RelayCommand SpeechCommand => new RelayCommand(async() =>
         {
             try
@@ -39,6 +33,8 @@ namespace Capibara.ViewModel
                     Conversa = await capivaraService.SendTextToService(ResultText);
                     capivaraService.Context = Conversa;
                     ResultText = Conversa.ConStrResposta;
+
+                    
                 }
                 else
                 {
@@ -63,6 +59,13 @@ namespace Capibara.ViewModel
         }
 
 
+        private string _input;
+
+        public string Input
+        {
+            get { return _input; }
+            set {Set(ref _input , value); }
+        }
 
 
         private string _resultText;

@@ -20,11 +20,19 @@ namespace Capibara.ViewModel.Base
         {
             var ble = CrossBluetoothLE.Current;
             ble.StateChanged += (s, e) =>
-            {
-                
+            {                
                 Debug.WriteLine($"The bluetooth state changed to {e.NewState}");
             };
+
+            CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChanged;
         }
+
+        private async void Current_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (!e.IsConnected)
+               await ShowToast("Verifique sua conexão");
+        }
+
         public GalaSoft.MvvmLight.Views.IDialogService DialogService
         {
             get

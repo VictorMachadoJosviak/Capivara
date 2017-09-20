@@ -15,7 +15,8 @@ namespace Capibara.Views
         {
             Title = "Capibara";
 
-
+            var entry = new Entry();
+            entry.SetBinding(Entry.TextProperty, CreateBinding(x => x.Input));
 
             var speak = new Button
             {
@@ -34,6 +35,7 @@ namespace Capibara.Views
                 Padding = 16,
                 Children =
                 {
+                    entry,
                   lbResult,
                     speak,
                   
